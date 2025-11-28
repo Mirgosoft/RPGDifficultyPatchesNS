@@ -43,9 +43,11 @@ namespace RPGDifficultyPatchesNS
     internal static class RPGDifficulty_Initialization__SetEntityStats_Patches
     {
         public static void Prefix(RPGDifficulty.Initialization __instance, Entity entity) {
+            if (Initialization.DefaultSpawnPosition != null && entity.IsCreature) // (проверка из RPGDifficulty)
                 IncreaseStatsByDistancePadding.PatchDistance(entity);
         }
         public static void Postfix(RPGDifficulty.Initialization __instance, Entity entity) {
+            if (Initialization.DefaultSpawnPosition != null && entity.IsCreature) // (проверка из RPGDifficulty)
                 IncreaseStatsByDistancePadding.RestoreOriginalDistance(entity);
         }
     }
