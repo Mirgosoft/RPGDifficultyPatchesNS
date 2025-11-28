@@ -19,7 +19,7 @@ namespace RPGDifficultyPatchesNS.Patches
         static int _increaseStatsEveryDistance_Backup = -999;
 
         public static void PatchDistance(Entity entity) {
-            double diff_pos_X = entity.Pos.X - Initialization.DefaultSpawnPosition.X;
+            /*double diff_pos_X = entity.Pos.X - Initialization.DefaultSpawnPosition.X;
             double diff_pos_Z = entity.Pos.Z - Initialization.DefaultSpawnPosition.Z;
 
             if (diff_pos_X < 0d) // Более быстрый аналог Math.abs();
@@ -28,10 +28,12 @@ namespace RPGDifficultyPatchesNS.Patches
                 diff_pos_Z *= -1d;
 
             double distance = diff_pos_X + diff_pos_Z; // (да-да, именно так оптимизированно рассчитывает дистанцию RPGDifficulty.)
+            */
+            double distance = entity.Pos.HorDistanceTo(Initialization.DefaultSpawnPosition);
 
             // Рассчитываем, какой должен быть параметр  .increaseStatsEveryDistance
             // с учётом нашего отступа Config.settings.increaseStatsByDistancePadding.
-            
+
             // Бекап перед изменениями.
             _increaseStatsEveryDistance_Backup = RPGDifficulty.Configuration.increaseStatsEveryDistance;
 
