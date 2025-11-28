@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using RPGDifficulty;
 using RPGDifficultyPatchesNS.Patches;
 using System;
 using System.Collections.Generic;
@@ -29,12 +30,12 @@ namespace RPGDifficultyPatchesNS
         public static void Prefix(RPGDifficulty.Initialization __instance, IPlayer player,
                                   string type, ulong amount)
         {
-            IncreaseStatsByDistancePadding.PatchDistance();
+            IncreaseStatsByDistancePadding.PatchDistance(player.Entity);
         }
         public static void Postfix(RPGDifficulty.Initialization __instance, IPlayer player,
                                    string type, ulong amount)
         {
-            IncreaseStatsByDistancePadding.RestoreOriginalDistance();
+            IncreaseStatsByDistancePadding.RestoreOriginalDistance(player.Entity);
         }
     }
 
@@ -42,10 +43,10 @@ namespace RPGDifficultyPatchesNS
     internal static class RPGDifficulty_Initialization__SetEntityStats_Patches
     {
         public static void Prefix(RPGDifficulty.Initialization __instance, Entity entity) {
-            IncreaseStatsByDistancePadding.PatchDistance();
+                IncreaseStatsByDistancePadding.PatchDistance(entity);
         }
         public static void Postfix(RPGDifficulty.Initialization __instance, Entity entity) {
-            IncreaseStatsByDistancePadding.RestoreOriginalDistance();
+                IncreaseStatsByDistancePadding.RestoreOriginalDistance(entity);
         }
     }
 
