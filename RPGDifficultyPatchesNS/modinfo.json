@@ -1,0 +1,14 @@
+{
+  "type": "code",
+  "modid": "rpgdifficultypatchesns",
+  "name": "RPGDifficultyPatchesNS",
+  "authors": [
+    "Flamin"
+  ],
+  "description": "Added Starting Distance before stats increases.",
+  "version": "1.2.0",
+  "Side": "Server",
+  "dependencies": {
+    "game": ""
+  }
+}
