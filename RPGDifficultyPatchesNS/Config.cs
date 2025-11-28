@@ -24,8 +24,6 @@ namespace RPGDifficultyPatchesNS
 
         public static ConfigData settings = new ConfigData();
 
-
-
         public static void SaveSettings() {
             if (!Directory.Exists(Config._folderPath))
                 Directory.CreateDirectory(Config._folderPath);
@@ -39,7 +37,6 @@ namespace RPGDifficultyPatchesNS
                 SaveSettings();
                 return;
             }
-
             settings = JsonConvert.DeserializeObject<ConfigData>(File.ReadAllText(_folderPath + "/" + _filename));
         }
 

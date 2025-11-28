@@ -17,16 +17,9 @@ namespace RPGDifficultyPatchesNS
         public static Harmony harmonyRef = null;
         public static ICoreServerAPI serverApi = null;
 
-        
-
         public static void Init(ICoreServerAPI api) {
             serverApi = api;
         }
-
-
-
-
-
 
     }
 }

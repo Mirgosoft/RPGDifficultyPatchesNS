@@ -12,8 +12,6 @@ namespace RPGDifficultyPatchesNS
 
         public override void Start(ICoreAPI api) {
             if (api.Side == EnumAppSide.Server) {
-                //Main.clientApi = api as ICoreClientAPI;
-
                 if (!Harmony.HasAnyPatches(Mod.Info.ModID)) {
                     Main.harmonyRef = new Harmony(Mod.Info.ModID);
                     Main.harmonyRef.PatchAll(); // Applies all harmony patches
